@@ -1,4 +1,3 @@
-
 <html>
     <h1>
         Datacom:
@@ -13,10 +12,94 @@
             Router beheer:
             enable -> uitlezen <br>
             config t -> configureren
-        <p>
-        <p>
-            Dit is python
         </p>
+
+        <h2>Hier is een uitgebreid stappenplan om het netwerk in Packet Tracer in te richten volgens de gegeven specificaties:</h2>
+        <p>
+            <strong>Stap 1: Creëer de basiscomponenten</strong><br>
+            1. Sleep de volgende apparaten naar het werkveld: <br>
+            - 1 Cisco 4321 Router (Router_1).<br>
+            - 1 Cisco Catalyst 3650 Multi-Layer Switch (Switch_ML).<br>
+            - 3 Cisco Catalyst 2960 Switches (Switch_1, Switch_2, Switch_3).<br>
+            - 3 Access Points (AP-PT1, AP-PT2, AP-PT3).<br>
+            - 1 Server (Server_1).<br>
+            - 3 Laptops (voor medewerkers, ICT-beheer, en gasten).<br>
+        </p>
+
+        <p>
+            <strong>Stap 2: Verbind de apparaten</strong><br>
+            1. Backbone verbindingen:<br>
+            - Verbind de Catalyst 3650 switch (Switch_ML) met: <br>
+              - Switch_1 en Switch_2 redundant via twee kabels (FastEthernet-poorten).<br>
+              - Switch_3 via één kabel op een GigabitEthernet-poort.<br>
+            2. Verbinding naar Router_1:<br>
+            - Verbind de Router_1 met Switch_ML via een GigabitEthernet-kabel.<br>
+            3. Server verbinding:<br>
+            - Verbind Server_1 met Switch_3.<br>
+            4. Access Points verbinding:<br>
+            - Verbind AP-PT1 (Gasten VLAN) met Switch_1.<br>
+            - Verbind AP-PT2 en AP-PT3 (Medewerkers en ICT VLAN’s) met Switch_2.<br>
+            5. Laptop verbindingen:<br>
+            - Laptop1: Verbinding met AP-PT1.<br>
+            - Laptop0: Verbinding met AP-PT2.<br>
+            - Laptop2: Verbinding met AP-PT3.<br>
+        </p>
+
+        <p>
+            <strong>Stap 3: Configureer de VLAN's op Switch_ML</strong><br>
+            1. Maak de VLAN's aan:<br>
+            - Open de CLI van Switch_ML en voer de volgende commando’s uit.<br>
+            2. Configureer trunk-interfaces:<br>
+            - Stel de uplink naar Router_1 en de verbindingen naar Switch_1, Switch_2 en Switch_3 in als trunk.<br>
+        </p>
+
+        <p>
+            <strong>Stap 4: Configureer Switch_1, Switch_2 en Switch_3</strong><br>
+            1. Switch_1 en Switch_2 VLAN-toewijzing:<br>
+            - Verdeel de interfaces gelijk over VLAN 10 (medewerkers) en VLAN 30 (gasten).<br>
+            2. Switch_3 VLAN-toewijzing:<br>
+            - Stel alle interfaces in op VLAN 10 voor de server.<br>
+            3. Trunk-interfaces instellen:<br>
+            - Configureer de backbonepoorten op alle switches als trunk.<br>
+        </p>
+
+        <p>
+            <strong>Stap 5: Configureer Router_1</strong><br>
+            1. Interface configuratie voor de VLAN's:<br>
+            - Geef elk VLAN een IP-adres.<br>
+            2. Standaard route instellen naar de ISP:<br>
+            - Voeg een route toe voor internettoegang.<br>
+        </p>
+
+        <p>
+            <strong>Stap 6: Configureer Server_1</strong><br>
+            1. DHCP-configuratie:<br>
+            - Ga naar de desktop van Server_1 en open de DHCP-service. Voeg de volgende pools toe:<br>
+            - Pool voor VLAN 10: Default Gateway: 10.1.0.1, Start IP: 10.1.0.50, Subnet Mask: 255.255.255.0, Max Users: 30, DNS Server: 10.1.0.1.<br>
+            - Pool voor VLAN 20: Default Gateway: 10.2.0.1, Start IP: 10.2.0.50, Subnet Mask: 255.255.255.0, Max Users: 30, DNS Server: 10.2.0.1.<br>
+            - Pool voor VLAN 30: Default Gateway: 10.3.0.1, Start IP: 10.3.0.50, Subnet Mask: 255.255.255.0, Max Users: 10, DNS Server: 10.3.0.1.<br>
+            2. DNS-configuratie:<br>
+            - Voeg een DNS-record toe voor internetverkeer:<br>
+              Domain: Bedrijf.nl, IP: 10.1.0.1.<br>
+        </p>
+
+        <p>
+            <strong>Stap 7: Configureer de Access Points</strong><br>
+            1. AP-PT1 (Gasten): SSID: gasten, Security: WPA2-PSK, Wachtwoord: gast12345, Kanaal: 11.<br>
+            2. AP-PT2 (Medewerkers): SSID: medewerkers, Security: WPA2-PSK, Wachtwoord: med12345, Kanaal: 1.<br>
+            3. AP-PT3 (Beheer): SSID: Beheer, Security: WPA2-PSK, Wachtwoord: ICT123456, Kanaal: 6.<br>
+        </p>
+
+        <p>
+            <strong>Stap 8: Test het netwerk</strong><br>
+            1. Controleer verbindingen:<br>
+            - Ping van elke laptop naar: Het VLAN-gatewayadres, De server (10.1.0.1), Het internet (bijvoorbeeld 8.8.8.8).<br>
+            2. Controleer de failover:<br>
+            - Test de redundantie door een kabel tussen Switch_1 en Switch_ML los te koppelen en te controleren of de verbinding nog steeds werkt via de andere kabel.<br>
+            3. Controleer de IP-toewijzing:<br>
+            - Zorg ervoor dat elke laptop automatisch een IP-adres ontvangt van de DHCP-server.<br>
+        </p>
+
         <h2>Babayaaan</h2>
         <p>
             El chef babayan
