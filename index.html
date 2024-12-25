@@ -105,7 +105,28 @@
         </p>
 
         <p>
-            <strong>Stap 4: LACP-configuratie voor Switch_1 en Switch_2:</strong><br>
+            <strong>Stap 4: Ga terug naar de MLS en voer de volgende commando's uit:</strong><br>
+            ===========================<br>
+            interface vlan 10<br>
+            ip address 10.1.0.2 255.255.255.0<br>
+            no shutdown<br>
+            interface vlan 20<br>
+            ip address 10.2.0.2 255.255.255.0<br>
+            no shutdown<br>
+            interface vlan 30<br>
+            ip address 10.3.0.2 255.255.255.0<br>
+            no shutdown<br>
+            exit<br>
+            interface vlan 10<br>
+            ip helper-address 10.1.0.50<br>
+            interface vlan 20<br>
+            ip helper-address 10.1.0.50<br>
+            interface vlan 30<br>
+            ip helper-address 10.1.0.50<br>
+            ===========================<br><br>
+        </p>
+        <p>
+            <strong>Stap 5: LACP-configuratie voor Switch_1 en Switch_2:</strong><br>
             1. Interface configuratie voor de VLAN's:<br>
             - Geef elk VLAN een IP-adres.<br>
             2. Standaard route instellen naar de ISP:<br>
@@ -113,7 +134,7 @@
         </p>
 
         <p>
-            <strong>Stap 5: Configureer Server_1</strong><br>
+            <strong>Stap 6: Configureer Server_1</strong><br>
             1. DHCP-configuratie:<br>
             - Ga naar de desktop van Server_1 en open de DHCP-service. Voeg de volgende pools toe:<br>
             - Pool voor VLAN 10: Default Gateway: 10.1.0.1, Start IP: 10.1.0.50, Subnet Mask: 255.255.255.0, Max Users: 30, DNS Server: 10.1.0.1.<br>
@@ -125,14 +146,14 @@
         </p>
 
         <p>
-            <strong>Stap 6: Configureer de Access Points</strong><br>
+            <strong>Stap 7: Configureer de Access Points</strong><br>
             1. AP-PT1 (Gasten): SSID: gasten, Security: WPA2-PSK, Wachtwoord: gast12345, Kanaal: 11.<br>
             2. AP-PT2 (Medewerkers): SSID: medewerkers, Security: WPA2-PSK, Wachtwoord: med12345, Kanaal: 1.<br>
             3. AP-PT3 (Beheer): SSID: Beheer, Security: WPA2-PSK, Wachtwoord: ICT123456, Kanaal: 6.<br>
         </p>
 
         <p>
-            <strong>Stap 7: Test het netwerk</strong><br>
+            <strong>Stap 8: Test het netwerk</strong><br>
             1. Controleer verbindingen:<br>
             - Ping van elke laptop naar: Het VLAN-gatewayadres, De server (10.1.0.1), Het internet (bijvoorbeeld 8.8.8.8).<br>
             2. Controleer de failover:<br>
