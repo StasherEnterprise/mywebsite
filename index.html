@@ -16,22 +16,11 @@
 
         <h2>Hier is een uitgebreid stappenplan om het netwerk in Packet Tracer in te richten volgens de gegeven specificaties:</h2>
         <p>
-            <strong>Stap 1: Creëer de basiscomponenten</strong><br>
-            1. Sleep de volgende apparaten naar het werkveld: <br>
-            - 1 Cisco 4321 Router (Router_1).<br>
-            - 1 Cisco Catalyst 3650 Multi-Layer Switch (Switch_ML).<br>
-            - 3 Cisco Catalyst 2960 Switches (Switch_1, Switch_2, Switch_3).<br>
-            - 3 Access Points (AP-PT1, AP-PT2, AP-PT3).<br>
-            - 1 Server (Server_1).<br>
-            - 3 Laptops (voor medewerkers, ICT-beheer, en gasten).<br>
-        </p>
-
-        <p>
-            <strong>Stap 2: Verbind de apparaten</strong><br>
+            <strong>Stap 1: Verbind de apparaten</strong><br>
             1. Backbone verbindingen:<br>
-            - Verbind de Catalyst 3650 switch (Switch_ML) met: <br>
-              - Switch_1 en Switch_2 redundant via twee kabels (FastEthernet-poorten).<br>
-              - Switch_3 via één kabel op een GigabitEthernet-poort.<br>
+            - Verbind de Switch_ML (MLS) met: <br>
+                  - Switch_1 en Switch_2 redundant via twee kabels (FastEthernet-poorten).<br>
+                  - Switch_3 via één kabel op een GigabitEthernet-poort.<br>
             2. Verbinding naar Router_1:<br>
             - Verbind de Router_1 met Switch_ML via een GigabitEthernet-kabel.<br>
             3. Server verbinding:<br>
