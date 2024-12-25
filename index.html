@@ -90,12 +90,22 @@
             switchport access vlan 20<br>
             exit<br>
             ===========================<br><br>
-            3. Trunk-interfaces instellen:<br>
-            - Configureer de backbonepoorten op alle switches als trunk.<br>
+            3. Voer de volgende commando's uit op Switch_3:<br>
+            ===========================<br>
+            enable<br>
+            configure terminal<br>
+            vlan 10<br>
+            name medewerkers<br>
+            exit<br>
+            interface FastEthernet0/1<br>
+            switchport mode access<br>
+            switchport access vlan 10<br>
+            exit<br>
+            ===========================<br><br>
         </p>
 
         <p>
-            <strong>Stap 4: Configureer Router_1</strong><br>
+            <strong>Stap 4: LACP-configuratie voor Switch_1 en Switch_2:</strong><br>
             1. Interface configuratie voor de VLAN's:<br>
             - Geef elk VLAN een IP-adres.<br>
             2. Standaard route instellen naar de ISP:<br>
