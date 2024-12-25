@@ -34,15 +34,26 @@
         </p>
 
         <p>
-            <strong>Stap 3: Configureer de VLAN's op Switch_ML</strong><br>
+            <strong>Stap 2: Configureer de VLAN's op Switch_ML</strong><br>
             1. Maak de VLAN's aan:<br>
-            - Open de CLI van Switch_ML en voer de volgende commando’s uit.<br>
+            - Open de CLI van Switch_ML en voer de volgende commando’s uit:<br>
+            ===========================<br>
+            enable <br>
+            configure terminal<br>
+            vlan 10<br>
+            name medewerkers<br>
+            vlan 20<br>
+            name ICT-beheer<br>
+            vlan 30<br>
+            name gasten<br>
+            exit<br>
+            ===========================<br><br>
             2. Configureer trunk-interfaces:<br>
             - Stel de uplink naar Router_1 en de verbindingen naar Switch_1, Switch_2 en Switch_3 in als trunk.<br>
         </p>
 
         <p>
-            <strong>Stap 4: Configureer Switch_1, Switch_2 en Switch_3</strong><br>
+            <strong>Stap 3: Configureer Switch_1, Switch_2 en Switch_3</strong><br>
             1. Switch_1 en Switch_2 VLAN-toewijzing:<br>
             - Verdeel de interfaces gelijk over VLAN 10 (medewerkers) en VLAN 30 (gasten).<br>
             2. Switch_3 VLAN-toewijzing:<br>
@@ -52,7 +63,7 @@
         </p>
 
         <p>
-            <strong>Stap 5: Configureer Router_1</strong><br>
+            <strong>Stap 4: Configureer Router_1</strong><br>
             1. Interface configuratie voor de VLAN's:<br>
             - Geef elk VLAN een IP-adres.<br>
             2. Standaard route instellen naar de ISP:<br>
@@ -60,7 +71,7 @@
         </p>
 
         <p>
-            <strong>Stap 6: Configureer Server_1</strong><br>
+            <strong>Stap 5: Configureer Server_1</strong><br>
             1. DHCP-configuratie:<br>
             - Ga naar de desktop van Server_1 en open de DHCP-service. Voeg de volgende pools toe:<br>
             - Pool voor VLAN 10: Default Gateway: 10.1.0.1, Start IP: 10.1.0.50, Subnet Mask: 255.255.255.0, Max Users: 30, DNS Server: 10.1.0.1.<br>
@@ -72,14 +83,14 @@
         </p>
 
         <p>
-            <strong>Stap 7: Configureer de Access Points</strong><br>
+            <strong>Stap 6: Configureer de Access Points</strong><br>
             1. AP-PT1 (Gasten): SSID: gasten, Security: WPA2-PSK, Wachtwoord: gast12345, Kanaal: 11.<br>
             2. AP-PT2 (Medewerkers): SSID: medewerkers, Security: WPA2-PSK, Wachtwoord: med12345, Kanaal: 1.<br>
             3. AP-PT3 (Beheer): SSID: Beheer, Security: WPA2-PSK, Wachtwoord: ICT123456, Kanaal: 6.<br>
         </p>
 
         <p>
-            <strong>Stap 8: Test het netwerk</strong><br>
+            <strong>Stap 7: Test het netwerk</strong><br>
             1. Controleer verbindingen:<br>
             - Ping van elke laptop naar: Het VLAN-gatewayadres, De server (10.1.0.1), Het internet (bijvoorbeeld 8.8.8.8).<br>
             2. Controleer de failover:<br>
