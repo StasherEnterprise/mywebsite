@@ -194,12 +194,6 @@ WHERE employee_id = 145;
 DELETE FROM adstatus
 WHERE status_id = 3;
     </code>
-
-    <h2>Verwachte foutmelding bij Query 5</h2>
-    <p>De deletequery zal een foutmelding geven omdat de foreign key-relatie in de tabel <code>employees</code> voorkomt dat <code>status_id = 3</code> wordt verwijderd:</p>
-    <code>
-ERROR 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`your_database`.`employees`, CONSTRAINT `fk_employees_adstatus` FOREIGN KEY (`adstatus_id`) REFERENCES `adstatus` (`status_id`))
-    </code>
 </body>
         <p>
             El chef babayan
