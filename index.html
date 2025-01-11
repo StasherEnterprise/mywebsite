@@ -158,7 +158,8 @@ WHERE
 ORDER BY 
     outservice_date ASC;
     </code>
-    <h2>1. Maak de tabel <code>adstatus</code></h2>
+    <h1>SQL-Database aanpassen</h1>
+    <h2>1. Maak de tabel adstatus</h2>
     <code>
 CREATE TABLE adstatus (
     status_id INT(10) NOT NULL PRIMARY KEY,
@@ -166,7 +167,7 @@ CREATE TABLE adstatus (
 );
     </code>
 
-    <h2>2. Voeg statussen toe aan de tabel <code>adstatus</code></h2>
+    <h2>2. Voeg statussen toe aan de tabel adstatus</h2>
     <code>
 INSERT INTO adstatus (status_id, status_description) VALUES
 (1, 'In de Active Directory en user is actief'),
@@ -175,42 +176,14 @@ INSERT INTO adstatus (status_id, status_description) VALUES
 (0, 'Onbekend');
     </code>
 
-    <h2>3. Breid de tabel <code>employees</code> uit met het veld <code>adstatus_id</code></h2>
+    <h2>3. Breid de tabel employees uit met het veld adstatus_id</h2>
     <code>
 ALTER TABLE employees
 ADD adstatus_id INT(10) AFTER last_column;
     </code>
 
-    <h2>4. Maak een relatie tussen <code>employees</code> en <code>adstatus</code></h2>
+    <h2>4. Maak een relatie tussen employees en adstatus</h2>
     <code>
-ALTER TABLE employees
-ADD CONSTRAINT fk_employees_adstatus
-FOREIGN KEY (adstatus_id)
-REFERENCES adstatus(status_id)
-ON DELETE SET NULL
-ON UPDATE CASCADE;
-    </code>
-
-    <h2>Volledige Script</h2>
-    <code>
--- Maak de tabel adstatus
-CREATE TABLE adstatus (
-    status_id INT(10) NOT NULL PRIMARY KEY,
-    status_description VARCHAR(255) NOT NULL
-);
-
--- Voeg statussen toe aan adstatus
-INSERT INTO adstatus (status_id, status_description) VALUES
-(1, 'In de Active Directory en user is actief'),
-(2, 'In de Active Directory en user niet actief'),
-(3, 'Niet in de Active Directory'),
-(0, 'Onbekend');
-
--- Breid de tabel employees uit
-ALTER TABLE employees
-ADD adstatus_id INT(10) AFTER last_column;
-
--- Maak de relatie tussen employees en adstatus
 ALTER TABLE employees
 ADD CONSTRAINT fk_employees_adstatus
 FOREIGN KEY (adstatus_id)
