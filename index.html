@@ -112,10 +112,10 @@ SELECT
     COUNT(*) AS totaal_in_dienst
 
 FROM 
-    medewerkers
+    medewerkers (Op het examen kan deze tabel ook anders heten, bv. employees.)
 
 WHERE 
-    in_service = 1;
+    in_service = 1;  (De "in_service" is de tabel die aangeeft of een medewerker in dienst is, dit kan op het examen ook anders heten bv. "Dienst_status")
     </code>
 
     <h2>Query 2: Overzicht van medewerkers in dienst</h2>
