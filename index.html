@@ -77,6 +77,52 @@
             <li>Toegang tot database <code>purple_hrm</code>.</li>
         </ul>
     </div>
+     <h1>MySQL Query's</h1>
+    
+    <h2>Query 1: Totaal aantal medewerkers in dienst</h2>
+    <code>
+SELECT 
+    COUNT(*) AS totaal_in_dienst
+FROM 
+    medewerkers
+WHERE 
+    in_service = 1;
+    </code>
+
+    <h2>Query 2: Overzicht van medewerkers in dienst</h2>
+    <code>
+SELECT 
+    firstname,
+    lastname,
+    adres,
+    city,
+    zipcode,
+    email,
+    CONCAT(firstname, lastname) AS username,
+    'W@chtwoord123!' AS password,
+    d.name AS department
+FROM 
+    medewerkers m
+JOIN 
+    departments d ON m.department_id = d.id
+WHERE 
+    m.in_service = 1;
+    </code>
+
+    <h2>Query 3: Medewerkers uit dienst in 2022</h2>
+    <code>
+SELECT 
+    firstname,
+    lastname,
+    CONCAT(firstname, lastname) AS username,
+    outservice_date
+FROM 
+    medewerkers
+WHERE 
+    outservice_date BETWEEN '2022-01-01' AND '2022-12-31'
+ORDER BY 
+    outservice_date ASC;
+    </code>
         <p>
             El chef babayan
         </p>
