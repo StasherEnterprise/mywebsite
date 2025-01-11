@@ -115,7 +115,7 @@ FROM
     medewerkers (Op het examen kan deze tabel ook anders heten, bv. employees. Maak een lege query en run "SHOW TABLES;" om alle namen van de tabellen te kunnen zien)
 
 WHERE 
-    in_service = 1;  (De "in_service" is de tabel die aangeeft of een medewerker in dienst is, dit kan op het examen ook anders heten bv. "Dienst_status")
+    in_service = 1;  (De "in_service" is de tabel die aangeeft of een medewerker in dienst is, dit kan op het examen ook anders heten bv. "Dienst_status". De "1" is in dit geval dat een medewerker in dienst is, maar op het examen kan dit ook bv. "Actief" zijn.)
     </code>
 
     <h2>Query 2: Overzicht van medewerkers in dienst</h2>
@@ -132,7 +132,7 @@ SELECT
     d.name AS department
 
 FROM 
-    medewerkers m
+    medewerkers m  (Op het examen kan deze tabel ook anders heten, bv. employees.
 
 JOIN 
     departments d ON m.department_id = d.id
