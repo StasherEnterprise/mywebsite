@@ -132,13 +132,13 @@ SELECT
     d.name AS department
 
 FROM 
-    medewerkers m  (Op het examen kan deze tabel ook anders heten, bv. employees.
+    medewerkers m  (Op het examen kan deze tabel ook anders heten, bv. "employees". Gebruik dan alsnog de letter m erachter om fouten te voorkomen)
 
 JOIN 
     departments d ON m.department_id = d.id
 
 WHERE 
-    m.in_service = 1;
+    m.in_service = 1;   (De "in_service" is de tabel die aangeeft of een medewerker in dienst is, dit kan op het examen ook anders heten bv. "Dienst_status". De "1" is in dit geval dat een medewerker in dienst is, maar op het examen kan dit ook bv. "Actief" zijn.)
     </code>
 
     <h2>Query 3: Medewerkers uit dienst in 2022</h2>
@@ -147,10 +147,10 @@ SELECT
     firstname,
     lastname,
     CONCAT(firstname, lastname) AS username,
-    outservice_date
+    outservice_date   (Dit is de tabel wanneer een medewerker uit dienst is gegaan, op het examen kan dit ook anders heten zoals "einde_dienst")
 
 FROM 
-    medewerkers
+    medewerkers (Op het examen kan deze tabel ook anders heten, bv. "employees")
 
 WHERE 
     outservice_date BETWEEN '2022-01-01' AND '2022-12-31'
