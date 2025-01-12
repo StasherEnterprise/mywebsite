@@ -116,7 +116,7 @@ SELECT
     COUNT(*) AS totaal_in_dienst
 
 FROM 
-    employees <p style="color: red;">(Deze tabel kan ook anders heten, bv. "Medewerkers". Klap links op het scherm de database zover uit tot je de naam ziet van de nodige tabel)</p>
+    employees <p style="color: red;">(Deze tabel kan ook anders heten, bv. "Medewerkers". Bekijk bijlage 3.1 om de juiste tabelnaam te pakken)</p>
 
 WHERE 
     in_service = 1;  <p style="color: red;">(De "in_service" is in dit voorbeeld de tabel die aangeeft of een medewerker in dienst is, dit heet op het examen waarschijnlijk iets als "Dienst_status".) <br></br>(De "1" is in dit voorbeeld dat een medewerker in dienst is, maar op het examen heet dit iets als "Actief")</p>
@@ -136,7 +136,7 @@ SELECT
     d.name AS department
 
 FROM 
-    employees m  <p style="color: red;">(Deze torrie tabel kan weer anders heten, bv. "medewerkers". Gebruik sowieso de letter m erachter om fouten te voorkomen<span> 🍆 </span>)</p>
+    employees m  <p style="color: red;">(Gebruik dezelfde "From" tabel als Query 1. Gebruik sowieso de letter m erachter om fouten te voorkomen<span> 🍆 </span>)</p>
 
 JOIN 
     departments d ON m.department_id = d.id
@@ -151,10 +151,10 @@ SELECT
     firstname,
     lastname,
     CONCAT(firstname, lastname) AS username,
-    outservice_date   <p style="color: red;">(outservice_date: Dit is de tabel wanneer een medewerker uit dienst is gegaan, op het examen heet dit anders zoals "einde_dienst")</p>
+    outservice_date   <p style="color: red;">(outservice_date: Dit is de tabel wanneer een medewerker uit dienst is gegaan, op het examen heet dit anders zoals "einde_dienst". Zie bijlage 3.1)</p>
 
 FROM 
-    employees <p style="color: red;">(Deze tabel kan weer anders heten, bv. "medewerkers".) </p>
+    employees <p style="color: red;">(Gebruik weer dezelfde "From" tabel als Query 1 en 2)</p>
 
 WHERE 
     outservice_date BETWEEN '2022-01-01' AND '2022-12-31' <p style="color: red;">(outservice_date aanpassen naar juiste naam)</p>
