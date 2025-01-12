@@ -151,16 +151,16 @@ SELECT
     firstname,
     lastname,
     CONCAT(firstname, lastname) AS username,
-    outservice_date   (Dit is de tabel wanneer een medewerker uit dienst is gegaan, op het examen kan dit ook anders heten zoals "einde_dienst")
+    outservice_date   <p style="color: red;">(outservice_date: Dit is de tabel wanneer een medewerker uit dienst is gegaan, op het examen heet dit anders zoals "einde_dienst")</p>
 
 FROM 
-    medewerkers (Op het examen kan deze tabel ook anders heten, bv. "employees")
+    employees <p style="color: red;">(Deze tabel kan weer anders heten, bv. "medewerkers".) </p>
 
 WHERE 
-    outservice_date BETWEEN '2022-01-01' AND '2022-12-31'
+    outservice_date BETWEEN '2022-01-01' AND '2022-12-31' <p style="color: red;">(outservice_date aanpassen naar juiste naam)</p>
 
 ORDER BY 
-    outservice_date ASC;
+    outservice_date ASC; <p style="color: red;">(outservice_date aanpassen naar juiste naam)</p>
     </code>
     <h1>SQL-Database aanpassen</h1>
     <img src="https://img.freepik.com/premium-vector/3944_101179-2247.jpg" alt="Mindset">
